@@ -20,9 +20,12 @@ namespace Advanced_Lesson_1_OOP
             Square square1 = new Square(2);
             Square square2 = new Square(4);
 
-            var arr = new Figure[] { circle1, circle2, square1, square2 };
+            Triangle triangle1 = new Triangle(1,4);
+            Triangle triangle2 = new Triangle(2, 4);
 
-            for (int i = 0; i < 4; i++)
+            var arr = new Figure[] { circle1, circle2, square1, square2, triangle1, triangle2 };
+
+            for (int i = 0; i < 6; i++)
             {
                 Console.WriteLine(arr[i].CalArea());
             }
@@ -65,6 +68,21 @@ namespace Advanced_Lesson_1_OOP
             }
         }
 
+
+        public class Triangle : Figure
+        {
+            private int a, b;
+            public Triangle(int a, int b)
+            {
+                this.a = a;
+                this.b = b;
+            }
+
+            public override double CalArea()
+            {
+                return a*b/2;
+            }
+        }
 
 
 
