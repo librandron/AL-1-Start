@@ -24,7 +24,6 @@ namespace Advanced_Lesson_1_OOP
 
             for (int i = 0; i < 4; i++)
             {
-                arr[i].CalArea();
                 Console.WriteLine(arr[i].CalArea());
             }
 
