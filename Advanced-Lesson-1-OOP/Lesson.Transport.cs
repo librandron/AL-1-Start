@@ -11,16 +11,21 @@ namespace Advanced_Lesson_1_OOP
 
         public static void InheritanceTransportExample()
         {
-            Transport transport = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
-            var transport2 = new Transport { Distance = 34, MaxSpeed = 5 };
+            //Transport transport = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
+            //var transport2 = new Transport { Distance = 34, MaxSpeed = 5 };
 
-            Transport unknowedTransport = new Transport { Distance = 34, MaxSpeed = 5 };
-            unknowedTransport = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
-            //var fuel = unknowedTransport.Fuel;
+            //Transport unknowedTransport = new Transport { Distance = 34, MaxSpeed = 5 };
+            //unknowedTransport = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
+            ////var fuel = unknowedTransport.Fuel;
 
-            FuelCar maserati = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
-            Transport winner = maserati;
-            FuelCar firstPlace = (FuelCar)winner;
+            //FuelCar maserati = new FuelCar() { FuelUsage = 10, Fuel = 45, Distance = 25045 };
+            //Transport winner = maserati;
+            //FuelCar firstPlace = (FuelCar)winner;
+
+            Car car1 = new Car() { Engine = 10 };
+            Car car2 = new Car() {Engine = 20 };
+            bool a = (car1.Engine != car2.Engine);
+            Console.WriteLine(a);
 
         }   
     }
@@ -43,6 +48,26 @@ namespace Advanced_Lesson_1_OOP
     public class Car : Transport
     {
         public float Engine { get; set; }
+
+        public static bool operator >(Car engine1, Car engine2)
+        {
+            return engine1.Engine > engine2.Engine;
+        }
+
+        public static bool operator <(Car engine1, Car engine2)
+        {
+            return engine1.Engine < engine2.Engine;
+        }
+
+        public static bool operator ==(Car engine1, Car engine2)
+        {
+            return engine1.Engine == engine2.Engine;
+        }
+
+        public static bool operator !=(Car engine1, Car engine2)
+        {
+            return engine1.Engine != engine2.Engine;
+        }
     }
 
     public class FuelCar : Car
